@@ -1,7 +1,17 @@
 <h1>Twitter rocks</h1>
 
-<ul>
+
+<table style="width:100%">
+    <tr>
+        <th>Id</th>
+        <th>Message</th>
+        <th>Date</th>
+    </tr>
     {{#each tws}}
-        <li>{{this.message}}</li>
+    <tr>
+        <td>{{this._id}}</td>
+        <td>{{this.message}}</td>
+        <td>{{this.createdAt}}</td>
+    </tr>
     {{/each}}
-</ul>
+</table>
