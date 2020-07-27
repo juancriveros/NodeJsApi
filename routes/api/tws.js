@@ -111,7 +111,7 @@ Router.patch('/:twId', (req,res) =>{
         if(req.body.message && req.body.message != ""){
             const tws = [];
             const error = null;
-            Tw.findByIdAndUpdate(twId, {message: req.body.message})
+            Tw.findByIdAndUpdate(twId, {message: req.body.message}, {new:true})
                 .lean()
                 .exec()
                 .then(tws => {
