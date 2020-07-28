@@ -1,11 +1,32 @@
 body {
-    background: purple;
+    background: white ;
 }
 table, th, td {
     border: 1px solid black;
     border-collapse: collapse;
   }
-  th, td {
-    padding: 5px;
-    text-align: left;    
-  }
+th, td {
+  padding: 5px;
+  text-align: left;    
+}
+
+.twitterCard {
+  background: grey;
+  color: white;
+  margin-top: 5px;
+}
+
+.title{
+  text-align: center;
+}
+
+.text-black { 
+  color: black !important;
+}
+
+.new-tweet{
+  background-color: grey;
+  color: white;
+  margin-top: 2px;
+  
+}

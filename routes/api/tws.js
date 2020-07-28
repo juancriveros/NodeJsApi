@@ -58,7 +58,7 @@ Router.get('/:twId', (req, res) => {
 
 Router.post('/', (req,res) => {
     console.log(req.body.message)
-
+    console.log("req.body.message")
     if(req.body.message && req.body.message != ""){
         const tw = new Tw({
             _id: new moongose.Types.ObjectId(),

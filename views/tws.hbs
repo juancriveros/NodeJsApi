@@ -1,17 +1,46 @@
-<h1>Twitter rocks</h1>
 
+<div class="container">
 
-<table style="width:100%">
-    <tr>
-        <th>Id</th>
-        <th>Message</th>
-        <th>Date</th>
-    </tr>
+    <h1 class="text-center">My tweets</h1>
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="card border-primary mb-3">
+                <div class="card-header text-center">Number of tweets</div>
+                <div class="card-body text-primary text-center">
+                    <p class="card-text">{{tws.length}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="card border-secondary mb-3">
+                <div class="card-header text-center">Last Tweet</div>
+                <div class="card-body text-secondary text-center">
+                    <p class="card-text">{{ formatLastDate tws.0.createdAt}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <form>
+                <div class="form-group">
+                    <div class="card text-white bg-info mb-3">
+                        <div class="card-header">New Tweet</div>
+                        <div class="card-body">
+                            <textarea class="form-control" id="newTw"></textarea>
+                            <button type="submit" href="/api/tws" class="new-tweet btn btn-primary mb-2 float-right">Tweet</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
     {{#each tws}}
-    <tr>
-        <td>{{this._id}}</td>
-        <td>{{this.message}}</td>
-        <td>{{this.createdAt}}</td>
-    </tr>
+    <div class="card twitterCard">
+    <div class="card-body">
+        <p class="card-text">{{this.message}}</p>
+        <p class="card-text"><small class="text-muted text-black">{{ formatDate this.createdAt }} </small></p>
+    </div>
+    </div>
     {{/each}}
-</table>
+</div>
