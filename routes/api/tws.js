@@ -57,17 +57,17 @@ Router.get('/:twId', (req, res) => {
 })
 
 Router.post('/', (req,res) => {
-    console.log(req.body.message)
-    console.log("req.body.message")
-    if(req.body.message && req.body.message != ""){
+    console.log(req.body.newTw)
+
+    if(req.body.newTw && req.body.newTw != ""){
         const tw = new Tw({
             _id: new moongose.Types.ObjectId(),
-            message: req.body.message
+            message: req.body.newTw
         })
 
         tw.save()
             .then(tw => {
-                res.status(200).send(tw)
+                res.status(200).json(tw);
             })
             .catch(err => {
                 res.status(500).json({error: err})

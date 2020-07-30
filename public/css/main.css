@@ -30,3 +30,15 @@ th, td {
   margin-top: 2px;
   
 }
+
+.tools {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 10px;
+  /*visibility: hidden;*/
+}
+
+.alert {
+  width: 100%;
+}

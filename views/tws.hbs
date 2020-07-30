@@ -1,4 +1,14 @@
 
+{{#if (isNotEmpty msg)}}
+<div class="alert alert-{{{msg.type}}} alert-dismissible fade show" role="alert">
+  {{{msg.msg}}}
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+{{/if}}
+
+
 <div class="container">
 
     <h1 class="text-center">My tweets</h1>
@@ -22,13 +32,13 @@
     </div>
     <div class="row">
         <div class="col-sm-12">
-            <form>
+            <form action="/tws" method="POST" >
                 <div class="form-group">
                     <div class="card text-white bg-info mb-3">
                         <div class="card-header">New Tweet</div>
                         <div class="card-body">
-                            <textarea class="form-control" id="newTw"></textarea>
-                            <button type="submit" href="/api/tws" class="new-tweet btn btn-primary mb-2 float-right">Tweet</button>
+                            <textarea class="form-control" id="newTw" name="newTw" required></textarea>
+                            <button type="submit" class="new-tweet btn btn-primary mb-2 float-right">Tweet</button>
                         </div>
                     </div>
                 </div>
@@ -37,10 +47,13 @@
     </div>
     {{#each tws}}
     <div class="card twitterCard">
-    <div class="card-body">
-        <p class="card-text">{{this.message}}</p>
-        <p class="card-text"><small class="text-muted text-black">{{ formatDate this.createdAt }} </small></p>
-    </div>
+        <div class="tools">
+        <a href="/tws/delete/{{this._id}}" class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i></a>
+      </div>
+        <div class="card-body">
+            <p class="card-text">{{this.message}}</p>
+            <p class="card-text"><small class="text-muted text-black">{{ formatDate this.createdAt }} </small></p>
+        </div>
     </div>
     {{/each}}
 </div>
